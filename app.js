@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/assets'));
  */ 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var health = require('./routes/health');
 /**
  * Express Validator Middleware for Form Validation
  */ 
@@ -87,6 +87,7 @@ app.use(flash());
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/health', health);
 
 app.listen(3000, function(){
 	console.log('Server running at port 3000: http://127.0.0.1:3000')

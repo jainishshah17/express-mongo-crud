@@ -1,4 +1,5 @@
 var express = require('express');
+var logger = require('morgan');
 var app = express();
 var expressMongoDb = require('express-mongo-db');
 /**
@@ -40,6 +41,7 @@ var bodyParser = require('body-parser');
  * and exposes the resulting object (containing the keys and values) on req.body.
  */ 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 
 

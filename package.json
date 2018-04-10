@@ -4,7 +4,7 @@
   "description": "Expressjs CRUD application using MongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "forever start  -a -l /var/log/app/forever.log -o /var/log/app/out.log -e /var/log/app/err.log app.js",
+    "start": "node app.js >> output.log &",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,6 +26,7 @@
     "express-validator": "^3.2.0",
     "forever": "^0.15.3",
     "method-override": "^2.3.9",
-    "mongodb": "^2.2.28"
+    "mongodb": "^2.2.28",
+    "morgan": "^1.9.0"
   }
 }

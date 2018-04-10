@@ -4,7 +4,7 @@
   "description": "Expressjs CRUD application using MongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js >> /var/log/app/output.log &",
+    "start": "node app.js > /var/log/app/output.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -24,7 +24,6 @@
     "express-mongo-db": "^2.0.3",
     "express-session": "^1.15.3",
     "express-validator": "^3.2.0",
-    "forever": "^0.15.3",
     "method-override": "^2.3.9",
     "mongodb": "^2.2.28",
     "morgan": "^1.9.0"

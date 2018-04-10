@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 ENV DATABASE_URL 'mongodb://localhost:27017/test'
 # Bundle app source
 COPY . /usr/src/app
-
+RUN mkdir -p /var/log/app
 # Install app dependencies
 RUN npm install
 

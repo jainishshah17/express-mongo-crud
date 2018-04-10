@@ -4,7 +4,7 @@
   "description": "Expressjs CRUD application using MongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js >> output.log &",
+    "start": "node app.js >> /var/log/app/output.log &",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

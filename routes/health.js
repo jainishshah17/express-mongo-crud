@@ -1,6 +1,6 @@
-var express = require('express')
-var app = express()
-var ObjectId = require('mongodb').ObjectId
+var express = require('express');
+var app = express();
+var ObjectId = require('mongodb').ObjectId;
 
 // HEALTH CHECK FOR APPLICATION
 app.get('/', function(req, res, next) {	
@@ -10,4 +10,4 @@ app.get('/', function(req, res, next) {
 	})
 });
 
-module.exports = app
+module.exports = app;

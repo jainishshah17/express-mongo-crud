@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Expressjs CRUD application using MongoDB",
   "main": "app.js",
-
   "scripts": {
-    "start": "node app.js",
+    "start": "forever start  -a -l /var/log/app/forever.log -o /var/log/app/out.log -e /var/log/app/err.log app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -25,6 +24,7 @@
     "express-mongo-db": "^2.0.3",
     "express-session": "^1.15.3",
     "express-validator": "^3.2.0",
+    "forever": "^0.15.3",
     "method-override": "^2.3.9",
     "mongodb": "^2.2.28"
   }

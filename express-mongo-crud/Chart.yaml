@@ -1,0 +1,12 @@
+apiVersion: v1
+appVersion: "1.0.0"
+description: A Helm chart for Kubernetes
+name: express-mongo-crud
+version: 0.1.0
+sources:
+- https://github.com/jainishshah17/express-mongo-crud
+maintainers:
+- name: jainishshah17
+  email: jainishshah@yahoo.com
+icon: https://github.com/jainishshah17/jainishshah.com/blob/master/app/public/images/logo.jpg
+home: http://jainishshah.com/

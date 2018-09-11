@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "express-mongo-crud.fullname" . }}
+  name: {{ template "express-crud.fullname" . }}
   labels:
-    app: {{ template "express-mongo-crud.name" . }}
-    chart: {{ template "express-mongo-crud.chart" . }}
+    app: {{ template "express-crud.name" . }}
+    chart: {{ template "express-crud.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "express-mongo-crud.name" . }}
+    app: {{ template "express-crud.name" . }}
     release: {{ .Release.Name }}

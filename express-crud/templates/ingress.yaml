@@ -1,13 +1,13 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "express-mongo-crud.fullname" . -}}
+{{- $fullName := include "express-crud.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app: {{ template "express-mongo-crud.name" . }}
-    chart: {{ template "express-mongo-crud.chart" . }}
+    app: {{ template "express-crud.name" . }}
+    chart: {{ template "express-crud.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}

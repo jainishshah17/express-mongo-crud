@@ -1,0 +1,18 @@
+{{- if .Values.rbac.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: {{ template "express-crud.name" . }}
+    chart: {{ template "express-crud.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "express-crud.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ template "express-crud.serviceAccountName" . }}
+roleRef:
+  kind: Role
+  apiGroup: rbac.authorization.k8s.io
+  name: {{ template "express-crud.fullname" . }}
+{{- end }}

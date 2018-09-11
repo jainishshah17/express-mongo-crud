@@ -1,0 +1,13 @@
+{{- if .Values.rbac.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app: {{ template "express-crud.name" . }}
+    chart: {{ template "express-crud.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "express-crud.fullname" . }}
+rules:
+{{ toYaml .Values.rbac.role.rules }}
+{{- end }}

@@ -58,7 +58,7 @@ spec:
                 key: mongodb-password
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.service.internalPort }}
               protocol: TCP
           livenessProbe:
             httpGet:

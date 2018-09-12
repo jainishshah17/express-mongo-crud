@@ -63,15 +63,6 @@ mongodb:
 #    initialDelaySeconds: 30
 #    periodSeconds: 30
 
-image:
-  repository: nginx
-  # tag: stable
-  pullPolicy: IfNotPresent
-
-service:
-  type: ClusterIP
-  port: 80
-
 ingress:
   enabled: false
   annotations: {}
@@ -84,6 +75,16 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+image:
+  repository: jainishshah17/express-mongo-crud
+  # tag: stable
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  internalPort: 3000
+  externalPort: 80
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

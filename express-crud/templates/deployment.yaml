@@ -39,43 +39,43 @@ spec:
             do sleep 2;
           done
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-          - name: DATABASE_USER
-            value: {{ .Values.mongodb.mongodbUsername }}
-          - name: DATABASE_NAME
-            value: {{ .Values.mongodb.mongodbDatabase }}
-          - name: DATABASE_HOST
-            value: '{{ .Release.Name }}-mongodb'
-          - name: DATABASE_PORT
-            value: 27017
-          - name: DATABASE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Release.Name }}-mongodb
-                key: mongodb-password
-          ports:
-            - name: http
-              containerPort: {{ .Values.service.internalPort }}
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: '/health'
-              port: http
-            initialDelaySeconds: 60
-            periodSeconds: 10
-            failureThreshold: 10
-          readinessProbe:
-            httpGet:
-              path: '/health'
-              port: http
-            initialDelaySeconds: 60
-            periodSeconds: 10
-            failureThreshold: 10
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: DATABASE_USER
+          value: '{{ .Values.mongodb.mongodbUsername }}'
+        - name: DATABASE_NAME
+          value: '{{ .Values.mongodb.mongodbDatabase }}'
+        - name: DATABASE_HOST
+          value: '{{ .Release.Name }}-mongodb'
+        - name: DATABASE_PORT
+          value: '27017'
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-mongodb
+              key: mongodb-password
+        ports:
+        - name: http
+          containerPort: {{ .Values.service.internalPort }}
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: '/health'
+            port: http
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          failureThreshold: 10
+        readinessProbe:
+          httpGet:
+            path: '/health'
+            port: http
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          failureThreshold: 10
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}

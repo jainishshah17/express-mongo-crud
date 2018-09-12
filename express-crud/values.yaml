@@ -29,8 +29,6 @@ serviceAccount:
   ## If not set and create is true, a name is generated using the fullname template
   name:
 
-replicaCount: 1
-
 ## Configuration values for the mongodb dependency
 ## ref: https://github.com/kubernetes/charts/blob/master/stable/mongodb/README.md
 ##
@@ -75,6 +73,10 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+initContainerImage: "alpine:3.6"
+imagePullSecrets:
+replicaCount: 1
 
 image:
   repository: jainishshah17/express-mongo-crud

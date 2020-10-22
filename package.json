@@ -25,7 +25,7 @@
     "express-session": "^1.15.6",
     "express-validator": "^3.2.0",
     "method-override": "^2.3.10",
-    "mongodb": "^2.2.28",
-    "morgan": "^1.9.0"
+    "mongodb": "^3.6.2",
+    "morgan": "^1.10.0"
   }
 }
